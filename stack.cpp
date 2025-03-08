@@ -53,7 +53,10 @@ int main() {
     getline(cin, expression);
 
     int result = evaluatePostfix(expression);
-    cout << "Result of postfixxxxxxxxxxxxxxx expression is: " << result << endl;
+
+    cout << "Result of postfix expression issssssss : " << result << endl;
+
+
 
     return 0;
 }
