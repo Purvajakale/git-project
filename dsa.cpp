@@ -28,21 +28,35 @@ void printList(ListNode* head) {
 }
 
 int main() {
-    // Create linked list: 1->2->3->4->5
-    ListNode* head = new ListNode(1);
-    head->next = new ListNode(2);
-    head->next->next = new ListNode(3);
-    head->next->next->next = new ListNode(4);
-    head->next->next->next->next = new ListNode(5);
-
+    int n;
+    cout << "Enter number of nodes: ";
+    cin >> n;
+    
+    if(n <= 0) {
+        cout << "List is empty." << endl;
+        return 0;
+    }
+    
+    cout << "Enter node values: ";
+    int value;
+    cin >> value;
+    ListNode* head = new ListNode(value);
+    ListNode* current = head;
+    
+    for (int i = 1; i < n; i++) {
+        cin >> value;
+        current->next = new ListNode(value);
+        current = current->next;
+    }
+    
     cout << "Original List: ";
     printList(head);
-
+    
     head = reverseList(head);
-
+    
     cout << "Reversed List: ";
     printList(head);
-
+    
     // Cleanup memory
     while (head) {
         ListNode* temp = head;
